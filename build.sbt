@@ -10,3 +10,5 @@ libraryDependencies ++= Seq(
 )
 
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
+
+scalariformSettings
