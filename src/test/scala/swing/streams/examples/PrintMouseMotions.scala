@@ -1,4 +1,5 @@
 package swing.streams
+package examples
 
 import java.awt.event._
 import javax.swing._
@@ -8,13 +9,10 @@ import scalaz.\/
 
 import listener._
 
-object Test extends App {
-  // similar functions could be added for all sorts of listeners that can be
-  // added to a JFrame
-  def mouseMotions(frame: JFrame): Process[Task, KeyEvent] = {
-    def readEvents(callback: Throwable \/ KeyEvent => Unit): Unit =
-      frame.addKeyListener(new CallbackKeyListener(callback))
-    // TODO: remove the listener when the Process halts
+object PrintMouseMotions extends App {
+  def mouseMotions(frame: JFrame): Process[Task, MouseEvent] = {
+    def readEvents(callback: Throwable \/ MouseEvent => Unit): Unit =
+      frame.addMouseMotionListener(new CallbackMouseMotionListener(callback))
 
     Process.eval(Task.async(readEvents))
   }
@@ -30,6 +28,6 @@ object Test extends App {
   Process.eval(frameTask)
     .flatMap(mouseMotions)
     .map(_.toString)
-    .through(io.stdOutLines)
+    .to(io.stdOutLines)
     .run.run
 }
