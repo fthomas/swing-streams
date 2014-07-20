@@ -2,7 +2,7 @@ name := "swing-streams"
 
 version := "0.0"
 
-scalaVersion := "2.11.0"
+scalaVersion := "2.11.1"
 
 scalacOptions ++= Seq(
   "-deprecation",
