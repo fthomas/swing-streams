@@ -2,7 +2,7 @@ name := "swing-streams"
 
 version := "0.0"
 
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.2"
 
 scalacOptions ++= Seq(
   "-deprecation",
@@ -22,7 +22,7 @@ scalacOptions ++= Seq(
 libraryDependencies ++= Seq(
   "org.scalaz" %% "scalaz-concurrent" % "7.0.6",
   "org.scalaz" %% "scalaz-core" % "7.0.6",
-  "org.scalaz.stream" %% "scalaz-stream" % "0.4.1"
+  "org.scalaz.stream" %% "scalaz-stream" % "0.5"
 )
 
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
